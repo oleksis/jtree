@@ -11,7 +11,7 @@ from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.widgets import Tree, TreeNode
 
-__version__ = "0.1.1"
+__version__ = "0.1.1.post1"
 highlighter = ReprHighlighter()
 WINDOWS = platform.system() == "Windows"
 

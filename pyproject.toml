@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jtree"
-version = "0.1.1"
+version = "0.1.1.post1"
 description = "jtree is a command interface for displaying JSON (JavaScript Object Notation)"
 readme = "README.md"
 authors = [{ name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com" }]
@@ -32,7 +32,7 @@ Homepage = "https://github.com/oleksis/jtree"
 realpython = "jtree.__main__:main"
 
 [tool.bumpver]
-current_version = "0.1.1"
+current_version = "0.1.1.post1"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
