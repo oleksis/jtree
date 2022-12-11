@@ -3,7 +3,7 @@ jtree is a command interface for displaying JSON (JavaScript Object Notation). I
 
 ## Install
 ```bash
-➜ python -m pip install jfree
+➜ python -m pip install jtree
 ```
 
 ## Usage
