@@ -45,3 +45,7 @@ push = false
 "jtree/__init__.py" = [
     "{version}",
 ]
+
+[tool.isort]
+profile = "black"
+src_paths = ["jtree", "test"]
