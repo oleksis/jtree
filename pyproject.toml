@@ -11,12 +11,13 @@ authors = [{ name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com"
 license = { file = "LICENSE" }
 classifiers = [
     "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
 keywords = ["json", "explorer", "tui", "viewer"]
 dependencies = [
-    "textual >= 0.5.0",
+    "textual >= 0.6.0",
 ]
 requires-python = ">=3.7"
 
@@ -28,3 +29,19 @@ Homepage = "https://github.com/oleksis/jtree"
 
 [project.scripts]
 realpython = "jtree.__main__:main"
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+"jtree/__init__.py" = [
+    "{version}",
+]

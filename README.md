@@ -3,15 +3,14 @@ jtree is a command interface for displaying JSON (JavaScript Object Notation). I
 
 ## Install
 ```bash
-➜ python -m pip install -r requirements.txt
-
-➜ python -m pip install -e .
+➜ python -m pip install jfree
 ```
 
 ## Usage
 ```bash
 ➜ kubectl --kubeconfig .\napptive-kubeconfig get deployment -ojson > deployment.json
 
-➜ python jtree.py .\deployment.json
+➜ python -m jtree .\deployment.json
 ```
-![jtree TUI](json-tree.svg)
+
+![jtree TUI](https://raw.githubusercontent.com/oleksis/jtree/main/json-tree.svg)
