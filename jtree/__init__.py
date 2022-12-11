@@ -12,7 +12,7 @@ from textual.binding import Binding
 from textual.widgets import Tree, TreeNode
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 highlighter = ReprHighlighter()
 
 
