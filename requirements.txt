@@ -1,0 +1,8 @@
+commonmark==0.9.1
+importlib-metadata==4.13.0
+nanoid==2.0.0
+pygments==2.13.0
+rich==12.6.0
+# textual>=0.6.0  # Temp fix for textual.widgets._tree until version 0.6.0
+git+https://github.com/Textualize/textual.git@cf539293ff3b61eadb7545dae5787bbc375158da#egg=textual
+zipp==3.11.0

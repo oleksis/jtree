@@ -1,0 +1,30 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jtree"
+version = "0.1.0"
+description = "jtree is a command interface for displaying JSON (JavaScript Object Notation)"
+readme = "README.md"
+authors = [{ name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["json", "explorer", "tui", "viewer"]
+dependencies = [
+    "textual >= 0.5.0",
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/oleksis/jtree"
+
+[project.scripts]
+realpython = "jtree.__main__:main"
