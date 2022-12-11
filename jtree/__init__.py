@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import platform
 import sys
 
 from rich.highlighter import ReprHighlighter
@@ -12,6 +13,7 @@ from textual.widgets import Tree, TreeNode
 
 __version__ = "0.1.1"
 highlighter = ReprHighlighter()
+WINDOWS = platform.system() == "Windows"
 
 
 def add_node(name: str, node: TreeNode, data: object) -> None:
@@ -60,8 +62,10 @@ class JSONTreeApp(App):
 
         try:
             if args.path == "-":
+                # TODO: https://github.com/Textualize/textual/issues/153#issuecomment-1256933121
                 content = sys.stdin.read()
-                # sys.stdin = open('/dev/tty', 'r')
+                if not WINDOWS:
+                    sys.stdin = open("/dev/tty", "r")
                 self.json_data = content
             else:
                 with open(args.path, "rt") as json_file:
