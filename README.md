@@ -7,10 +7,15 @@ jtree is a command interface for displaying JSON (JavaScript Object Notation). I
 ```
 
 ## Usage
-```bash
+```pwsh
 ➜ kubectl --kubeconfig .\napptive-kubeconfig get deployment -ojson > deployment.json
 
 ➜ python -m jtree .\deployment.json
+```
+
+Pass the JSON content to standard input (`sys.stdin`)
+```bash
+cat deployment.json | python -m jtree
 ```
 
 ![jtree TUI](https://raw.githubusercontent.com/oleksis/jtree/main/json-tree.svg)
