@@ -1,10 +1,5 @@
 from __future__ import annotations
 
-import argparse
-import json
-import platform
-import sys
-
 from rich.highlighter import ReprHighlighter
 from rich.text import Text
 from textual.app import App, ComposeResult
@@ -13,10 +8,16 @@ from textual.widgets import Tree, TreeNode
 
 __version__ = "0.1.1.post1"
 highlighter = ReprHighlighter()
-WINDOWS = platform.system() == "Windows"
 
 
 def add_node(name: str, node: TreeNode, data: object) -> None:
+    """Adds a node to the tree.
+
+    Args:
+        name (str): Name of the node.
+        node (TreeNode): Parent node.
+        data (object): Data associated with the node.
+    """
     if isinstance(data, dict):
         node._label = Text(f"{{}} {name}")
         for key, value in data.items():
@@ -47,33 +48,16 @@ class JSONTreeApp(App):
         Binding("ctrl+c,ctrl+q", "app.quit", "Quit", show=True),
     ]
 
+    def __init__(
+        self, json_data=None, driver_class=None, css_path=None, watch_css=False
+    ):
+        self.json_data = json_data
+        super().__init__(driver_class, css_path, watch_css)
+
     def compose(self) -> ComposeResult:
         yield Tree("Root")
 
     def on_mount(self) -> None:
-        parser = argparse.ArgumentParser(description="Json Tree")
-        parser.add_argument(
-            "path",
-            metavar="PATH",
-            help="path to file, or - for stdin",
-        )
-
-        args = parser.parse_args()
-
-        try:
-            if args.path == "-":
-                # TODO: https://github.com/Textualize/textual/issues/153#issuecomment-1256933121
-                content = sys.stdin.read()
-                if not WINDOWS:
-                    sys.stdin = open("/dev/tty", "r")
-                self.json_data = content
-            else:
-                with open(args.path, "rt") as json_file:
-                    self.json_data = json.load(json_file)
-        except Exception as error:
-            self.log(f"Unable to read {args.path!r}; {error}")
-            sys.exit(-1)
-
         tree = self.query_one(Tree)
         root_name = "JSON"
         json_node = tree.root.add(root_name)
