@@ -13,9 +13,9 @@ jtree is a command interface for displaying JSON (JavaScript Object Notation). I
 ➜ python -m jtree .\deployment.json
 ```
 
+![jtree TUI](https://raw.githubusercontent.com/oleksis/jtree/main/json-tree.svg)
+
 Pass the JSON content to standard input (`sys.stdin`)
 ```bash
-cat deployment.json | python -m jtree
+➜ pipdeptree --json-tree -p textual | python -m jtree
 ```
-
-![jtree TUI](https://raw.githubusercontent.com/oleksis/jtree/main/json-tree.svg)
