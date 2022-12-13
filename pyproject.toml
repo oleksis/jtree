@@ -53,4 +53,4 @@ includes = "jtree"
 
 [tool.isort]
 profile = "black"
-src_paths = ["jtree", "test"]
+src_paths = ["jtree", "tests"]
