@@ -4,7 +4,7 @@ from rich.highlighter import ReprHighlighter
 from rich.text import Text
 from textual.app import App, ComposeResult
 from textual.binding import Binding
-from textual.widgets import Tree, TreeNode
+from textual.widgets import Footer, Header, Tree, TreeNode
 
 __version__ = "0.1.2"
 highlighter = ReprHighlighter()
@@ -43,9 +43,9 @@ class JSONTreeApp(App):
     TITLE = "jtree"
 
     BINDINGS = [
-        ("ctrl+s", "app.screenshot()", "Screenshot"),
+        ("s", "app.screenshot()", "Screenshot"),
         ("t", "toggle_root", "Toggle root"),
-        Binding("ctrl+c,ctrl+q", "app.quit", "Quit", show=True),
+        Binding("c, q", "app.quit", "Quit", show=True),
     ]
 
     def __init__(
@@ -55,6 +55,8 @@ class JSONTreeApp(App):
         super().__init__(driver_class, css_path, watch_css)
 
     def compose(self) -> ComposeResult:
+        yield Header()
+        yield Footer()
         yield Tree("Root")
 
     def on_mount(self) -> None:
