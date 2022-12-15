@@ -1,5 +1,5 @@
 # jtree
-jtree is a command interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view powered by [Textual](https://textual.textualize.io/) a Text User Interface (TUI) framework for Python.
+jtree is a command line interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view powered by [Textual](https://textual.textualize.io/) a Text User Interface (TUI) framework for Python.
 
 ## Install
 ```bash
