@@ -29,7 +29,7 @@ dev = ["black", "bumpver", "isort", "pip-tools", "pytest", "pipdeptree"]
 Homepage = "https://github.com/oleksis/jtree"
 
 [project.scripts]
-realpython = "jtree.__main__:main"
+jtree = "jtree.__main__:main"
 
 [tool.bumpver]
 current_version = "0.1.3"
