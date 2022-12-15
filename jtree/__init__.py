@@ -6,7 +6,7 @@ from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.widgets import Footer, Header, Tree, TreeNode
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 highlighter = ReprHighlighter()
 
 
