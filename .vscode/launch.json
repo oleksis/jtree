@@ -5,11 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Attach Textual",
+            "type": "python",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "justMyCode": false
+        },
+        {
             "name": "Python: módulo",
             "type": "python",
             "request": "launch",
             "module": "jtree",
-            "args": ["tests/fixtures/deployment.json"],
+            "args": [
+                "tests/fixtures/deployment.json"
+            ],
             "justMyCode": true
         }
     ]
