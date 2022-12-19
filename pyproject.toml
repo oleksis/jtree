@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "jtree"
 version = "0.1.4"
-description = "jtree is a command interface for displaying JSON (JavaScript Object Notation)"
+description = "jtree is a command line interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view"
 readme = "README.md"
 authors = [{ name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com" }]
 license = { file = "LICENSE" }
