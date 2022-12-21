@@ -7,7 +7,7 @@ from textual.widgets import Footer, Header
 
 from jtree.widgets import JSONDocument, JSONTree, TreeView
 
-__version__ = "0.1.4"
+__version__ = "0.2.0"
 
 
 class JSONTreeApp(App):
