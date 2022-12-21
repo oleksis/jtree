@@ -5,13 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Attach Textual",
+            "name": "Python: Attach to Debugpy",
             "type": "python",
             "request": "attach",
             "connect": {
-                "host": "localhost",
+                "host": "127.0.0.1",
                 "port": 5678
             },
+            "logToFile": false,
             "justMyCode": false
         },
         {
