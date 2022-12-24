@@ -1,5 +1,5 @@
 [build-system]
-requires      = ["setuptools>=61.0.0", "wheel"]
+requires      = ["setuptools>=61.0.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -30,6 +30,11 @@ Homepage = "https://github.com/oleksis/jtree"
 
 [project.scripts]
 jtree = "jtree.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["jtree*"]
+exclude = ["jtree.tests*"]
 
 [tool.bumpver]
 current_version = "0.2.0"

@@ -1,0 +1,3 @@
+include jtree/css/*.css
+
+exclude .vscode/* json-tree.svg
