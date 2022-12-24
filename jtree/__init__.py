@@ -12,6 +12,7 @@ __version__ = "0.2.1"
 
 class JSONTreeApp(App):
     TITLE = "jtree"
+    SUB_TITLE = f"A JSON Tree Viewer ({__version__})"
     CSS_PATH = "css/layout.css"
 
     BINDINGS = [
@@ -28,10 +29,10 @@ class JSONTreeApp(App):
 
     def compose(self) -> ComposeResult:
         yield Header()
-        yield Footer()
         yield Container(
             TreeView(id="tree-view"), JSONDocument(id="json-document"), id="app-grid"
         )
+        yield Footer()
 
     def on_mount(self) -> None:
         tree = self.query_one(JSONTree)
