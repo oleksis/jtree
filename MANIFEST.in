@@ -1,3 +1,4 @@
-include jtree/css/*.css
+recursive-include jtree/css *.css
+recursive-include tests *.json
 
-exclude .vscode/* json-tree.svg
+exclude requirements.txt .vscode/* json-tree.svg

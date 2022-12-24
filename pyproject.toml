@@ -23,7 +23,17 @@ dependencies = [
 requires-python = ">=3.7"
 
 [project.optional-dependencies]
-dev = ["black", "bumpver", "isort", "pip-tools", "pytest", "pipdeptree", "debugpy"]
+dev = [
+    "black",
+    "bumpver",
+    "isort",
+    "pip-tools",
+    "pytest",
+    "pipdeptree",
+    "debugpy",
+    "check-manifest",
+    "check-wheel-contents"
+]
 
 [project.urls]
 Homepage = "https://github.com/oleksis/jtree"
@@ -59,3 +69,6 @@ includes = "jtree"
 [tool.isort]
 profile = "black"
 src_paths = ["jtree", "tests"]
+
+[tool.check-wheel-contents]
+toplevel = ["jtree"]
