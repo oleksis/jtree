@@ -12,11 +12,12 @@ __version__ = "0.2.0"
 
 class JSONTreeApp(App):
     TITLE = "jtree"
+    CSS_PATH = "css/layout.css"
 
     BINDINGS = [
-        ("s", "app.screenshot()", "Screenshot"),
-        ("t", "toggle_root", "Toggle root"),
-        Binding("c, q", "app.quit", "Quit", show=True),
+        ("ctrl+s", "app.screenshot()", "Screenshot"),
+        ("ctrl+t", "toggle_root", "Toggle root"),
+        Binding("ctrl+q", "app.quit", "Quit"),
     ]
 
     def __init__(
@@ -28,15 +29,17 @@ class JSONTreeApp(App):
     def compose(self) -> ComposeResult:
         yield Header()
         yield Footer()
-        yield Container(TreeView(), JSONDocument())
+        yield Container(
+            TreeView(id="tree-view"), JSONDocument(id="json-document"), id="app-grid"
+        )
 
-    async def on_mount(self) -> None:
+    def on_mount(self) -> None:
         tree = self.query_one(JSONTree)
         root_name = "JSON"
         json_node = tree.root.add(root_name)
         tree.add_node(root_name, json_node, self.json_data)
         json_doc = self.query_one(JSONDocument)
-        await json_doc.load(self.json_data)
+        json_doc.load(self.json_data)
 
     def action_screenshot(self):
         self.save_screenshot("./json-tree.svg")
