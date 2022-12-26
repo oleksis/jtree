@@ -8,6 +8,8 @@ version = "0.2.1"
 description = "jtree is a command line interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view"
 readme = "README.md"
 authors = [{ name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com" }]
+urls.Homepage = "https://github.com/oleksis/jtree"
+urls.Tracker = "https://github.com/oleksis/jtree/issues"
 license = { file = "LICENSE" }
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -17,29 +19,25 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 keywords = ["json", "terminal", "tui", "tool", "explorer", "viewer"]
+requires-python = ">=3.7"
 dependencies = [
     "textual >= 0.8.1",
 ]
-requires-python = ">=3.7"
-
-[project.optional-dependencies]
-dev = [
-    "black",
+optional-dependencies.dev = [
     "bumpver",
-    "isort",
-    "pip-tools",
-    "pytest",
+    "pip-tools", 
     "pipdeptree",
     "debugpy",
     "check-manifest",
     "check-wheel-contents"
 ]
-
-[project.urls]
-Homepage = "https://github.com/oleksis/jtree"
-
-[project.scripts]
-jtree = "jtree.__main__:main"
+optional-dependencies.format = [
+    "black",
+    "isort",
+]
+optional-dependencies.test = ["pytest"]
+optional-dependencies.ci = ["tox"]
+scripts.jtree = "jtree.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
