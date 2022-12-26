@@ -6,14 +6,28 @@ import logging
 import platform
 import sys
 
-from jtree import JSONTreeApp
+if sys.version_info < (3, 8):
+    import importlib_metadata
+else:
+    import importlib.metadata as importlib_metadata
+
+from jtree import JSONTreeApp, __prog_name__, __version__
 
 WINDOWS = platform.system() == "Windows"
 DEBUGPY_PORT = 5678
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Json Tree")
+    parser = argparse.ArgumentParser(
+        prog=__prog_name__, description="Json Tree", epilog=f"v{__version__}"
+    )
+    parser.add_argument(
+        "-V",
+        "--version",
+        help="Show version information.",
+        action="version",
+        version=f"%(prog)s {__version__} (Textual v{importlib_metadata.version( 'textual' )})",
+    )
     parser.add_argument(
         "path",
         nargs="?",

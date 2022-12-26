@@ -7,11 +7,12 @@ from textual.widgets import Footer, Header
 
 from jtree.widgets import JSONDocument, JSONTree, TreeView
 
+__prog_name__ = "jtree"
 __version__ = "0.2.1"
 
 
 class JSONTreeApp(App):
-    TITLE = "jtree"
+    TITLE = __prog_name__
     SUB_TITLE = f"A JSON Tree Viewer ({__version__})"
     CSS_PATH = "css/layout.css"
 
@@ -24,8 +25,8 @@ class JSONTreeApp(App):
     def __init__(
         self, json_data=None, driver_class=None, css_path=None, watch_css=False
     ):
-        self.json_data = json_data
         super().__init__(driver_class, css_path, watch_css)
+        self.json_data = json_data
 
     def compose(self) -> ComposeResult:
         yield Header()
