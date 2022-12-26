@@ -6,3 +6,4 @@ napptive-kubeconfig
 __pycache__/
 jtree.egg-info/
 dist/
+.tox
