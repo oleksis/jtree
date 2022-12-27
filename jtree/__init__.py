@@ -1,11 +1,19 @@
 from __future__ import annotations
 
+import json
+import sys
+import tempfile
+from typing import TYPE_CHECKING
+
 from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.containers import Container
 from textual.widgets import Footer, Header
 
 from jtree.widgets import JSONDocument, JSONTree, TreeView
+
+if TYPE_CHECKING:
+    from io import TextIOWrapper
 
 __prog_name__ = "jtree"
 __version__ = "0.2.2"
@@ -23,10 +31,21 @@ class JSONTreeApp(App):
     ]
 
     def __init__(
-        self, json_data=None, driver_class=None, css_path=None, watch_css=False
+        self,
+        json_file: TextIOWrapper,
+        driver_class=None,
+        css_path=None,
+        watch_css=False,
     ):
         super().__init__(driver_class, css_path, watch_css)
-        self.json_data = json_data
+        with tempfile.TemporaryFile() as fp_temp:
+            if json_file is sys.stdin:
+                fp_temp.write(sys.stdin.read().encode(encoding="utf-8"))
+            else:
+                fp_temp.write(json_file.read().encode(encoding="utf-8"))
+                json_file.close()
+            fp_temp.seek(0)
+            self.json_data = fp_temp.read().decode("utf-8")
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -39,7 +58,8 @@ class JSONTreeApp(App):
         tree = self.query_one(JSONTree)
         root_name = "JSON"
         json_node = tree.root.add(root_name)
-        tree.add_node(root_name, json_node, self.json_data)
+        json_data = json.loads(self.json_data)
+        tree.add_node(root_name, json_node, json_data)
         json_doc = self.query_one(JSONDocument)
         json_doc.load(self.json_data)
 

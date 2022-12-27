@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from rich.highlighter import ReprHighlighter
-from rich.json import JSON
+from rich.syntax import Syntax
 from rich.text import Text
 from textual.app import ComposeResult
 from textual.widget import Widget
@@ -13,8 +13,9 @@ highlighter = ReprHighlighter()
 class JSONDocument(Static):
     def load(self, json_data) -> bool:
         try:
-            json_doc = JSON.from_data(json_data, indent=2)
-        except Exception:
+            # TODO: Customize theme="github-dark"
+            json_doc = Syntax(json_data, line_numbers=True, lexer="json")
+        except Exception as e:
             return False
         self.update(json_doc)
         return True

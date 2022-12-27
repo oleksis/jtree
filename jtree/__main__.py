@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import logging
 import platform
 import sys
@@ -31,7 +30,7 @@ def main():
     parser.add_argument(
         "path",
         nargs="?",
-        type=argparse.FileType(encoding="utf-8"),
+        type=argparse.FileType(encoding="utf-8", mode="r"),
         metavar="PATH",
         help="path to file, or stdin",
         default=sys.stdin,
@@ -53,23 +52,20 @@ def main():
         debugpy.listen(DEBUGPY_PORT)
         debugpy.wait_for_client()
 
-    with args.path as infile:
-        try:
-            json_data = json.load(infile)
+    try:
+        # See:Textualize/textual/issues/153#issuecomment-1256933121
+        if not WINDOWS:
+            sys.stdin = open("/dev/tty", "r")
 
-            # See:Textualize/textual/issues/153#issuecomment-1256933121
-            if not WINDOWS:
-                sys.stdin = open("/dev/tty", "r")
+        app = JSONTreeApp(args.path)
+        app.run()
 
-            app = JSONTreeApp(json_data)
-            app.run()
+        if not sys.stdin.closed:
+            sys.stdin.close()
 
-            if not sys.stdin.closed:
-                sys.stdin.close()
-
-        except Exception as error:
-            print(f"Unable to read {args.path!r}; {error}")
-            sys.exit(-1)
+    except Exception as error:
+        print(f"Unable to read {args.path!r}; {error}")
+        sys.exit(-1)
 
 
 if __name__ == "__main__":
