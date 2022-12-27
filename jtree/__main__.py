@@ -40,7 +40,6 @@ def main():
     )
 
     args = parser.parse_args()
-    json_data = None
     numeric_level = getattr(logging, args.log.upper(), None)
 
     if not isinstance(numeric_level, int):

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import sys
-import tempfile
 from typing import TYPE_CHECKING
 
 from textual.app import App, ComposeResult
@@ -38,14 +37,13 @@ class JSONTreeApp(App):
         watch_css=False,
     ):
         super().__init__(driver_class, css_path, watch_css)
-        with tempfile.TemporaryFile() as fp_temp:
-            if json_file is sys.stdin:
-                fp_temp.write(sys.stdin.read().encode(encoding="utf-8"))
-            else:
-                fp_temp.write(json_file.read().encode(encoding="utf-8"))
-                json_file.close()
-            fp_temp.seek(0)
-            self.json_data = fp_temp.read().decode("utf-8")
+        self.json_data: str = ""
+
+        if json_file is sys.stdin:
+            self.json_data = "".join(sys.stdin.readlines())
+        else:
+            self.json_data = json_file.read()
+            json_file.close()
 
     def compose(self) -> ComposeResult:
         yield Header()
