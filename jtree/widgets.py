@@ -5,7 +5,8 @@ from rich.syntax import Syntax
 from rich.text import Text
 from textual.app import ComposeResult
 from textual.widget import Widget
-from textual.widgets import Static, Tree, TreeNode
+from textual.widgets import Static, Tree
+from textual.widgets.tree import TreeNode
 
 highlighter = ReprHighlighter()
 
