@@ -9,7 +9,7 @@ from textual.binding import Binding
 from textual.containers import Container
 from textual.widgets import Footer, Header
 
-from jtree.widgets import JSONDocument, JSONTree, TreeView
+from jtree.widgets import JSONDocument, JSONDocumentView, JSONTree, TreeView
 
 if TYPE_CHECKING:
     from io import TextIOWrapper
@@ -48,7 +48,7 @@ class JSONTreeApp(App):
     def compose(self) -> ComposeResult:
         yield Header()
         yield Container(
-            TreeView(id="tree-view"), JSONDocument(id="json-document"), id="app-grid"
+            TreeView(id="tree-view"), JSONDocumentView(id="json-docview"), id="app-grid"
         )
         yield Footer()
 

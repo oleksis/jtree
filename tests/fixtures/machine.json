@@ -1,0 +1,36 @@
+[
+     {
+          "ConfigPath": {
+               "Path": "C:\\Users\\oleksis\\.config\\containers\\podman\\machine\\wsl\\podman-machine-default.json"
+          },
+          "ConnectionInfo": {
+               "PodmanSocket": null,
+               "PodmanPipe": {
+                    "Path": "\\\\.\\pipe\\podman-machine-default"
+               }
+          },
+          "Created": "2023-08-07T03:29:22.3401646-04:00",
+          "Image": {
+               "IgnitionFilePath": {
+                    "Path": ""
+               },
+               "ImageStream": "35",
+               "ImagePath": {
+                    "Path": "C:\\Users\\oleksis\\.local\\share\\containers\\podman\\machine\\wsl\\podman-machine-default_fedora-podman-amd64-v37.0.59.tar"
+               }
+          },
+          "LastUp": "2023-08-07T13:28:05.5114718-04:00",
+          "Name": "podman-machine-default",
+          "Resources": {
+               "CPUs": 4,
+               "DiskSize": 1687158784,
+               "Memory": 703307776
+          },
+          "SSHConfig": {
+               "IdentityPath": "C:\\Users\\oleksis\\.ssh\\podman-machine-default",
+               "Port": 59598,
+               "RemoteUsername": "user"
+          },
+          "State": "running"
+     }
+]

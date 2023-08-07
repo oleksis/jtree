@@ -4,6 +4,7 @@ from rich.highlighter import ReprHighlighter
 from rich.syntax import Syntax
 from rich.text import Text
 from textual.app import ComposeResult
+from textual.containers import Vertical
 from textual.widget import Widget
 from textual.widgets import Static, Tree
 from textual.widgets.tree import TreeNode
@@ -20,6 +21,22 @@ class JSONDocument(Static):
             return False
         self.update(json_doc)
         return True
+
+
+class JSONDocumentView(Vertical):
+    DEFAULT_CSS = """
+    JSONDocumentView {
+        height: 1fr;
+        overflow: auto;
+    }
+
+    JSONDocumentView > Static {
+        width: auto;
+    }
+    """
+
+    def compose(self) -> ComposeResult:
+        yield JSONDocument(id="json-document")
 
 
 class JSONTree(Tree):
