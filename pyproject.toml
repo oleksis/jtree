@@ -1,5 +1,5 @@
 [build-system]
-requires      = ["setuptools>=61.0.0", "setuptools-scm"]
+requires = ["setuptools>=61.0.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,9 @@ name = "jtree"
 version = "0.2.5"
 description = "jtree is a command line interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view"
 readme = "README.md"
-authors = [{ name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com" }]
+authors = [
+    { name = "Oleksis Fraga Menéndez", email = "oleksis.fraga@gmail.com" },
+]
 urls.Homepage = "https://github.com/oleksis/jtree"
 urls.Tracker = "https://github.com/oleksis/jtree/issues"
 license = { file = "LICENSE" }
@@ -20,21 +22,16 @@ classifiers = [
 ]
 keywords = ["json", "terminal", "tui", "tool", "explorer", "viewer"]
 requires-python = ">=3.7"
-dependencies = [
-    "textual >= 0.11.0",
-]
+dependencies = ["textual >= 0.11.0"]
 optional-dependencies.dev = [
     "bumpver",
-    "pip-tools", 
+    "pip-tools",
     "pipdeptree",
     "debugpy",
     "check-manifest",
-    "check-wheel-contents"
+    "check-wheel-contents",
 ]
-optional-dependencies.format = [
-    "black",
-    "isort",
-]
+optional-dependencies.format = ["black", "isort"]
 optional-dependencies.test = ["pytest"]
 optional-dependencies.ci = ["tox"]
 scripts.jtree = "jtree.__main__:main"
@@ -53,13 +50,8 @@ tag = true
 push = false
 
 [tool.bumpver.file_patterns]
-"pyproject.toml" = [
-    'current_version = "{version}"',
-    'version = "{version}"',
-]
-"jtree/__init__.py" = [
-    "{version}",
-]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"jtree/__init__.py" = ["{version}"]
 
 [tool.black]
 includes = "jtree"
