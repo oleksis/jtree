@@ -1,4 +1,5 @@
 venv/
+.venv/
 napptive-kubeconfig
 *.json
 !.vscode/*.json

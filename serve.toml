@@ -1,0 +1,2 @@
+[app.Jtree]
+command = "python -c \"import tomli;import json;fp = open('pyproject.toml', 'rb');config = tomli.load(fp);fp.close();fp = open('tmp.json', mode='w', encoding='utf-8');json.dump(config, fp);fp.close()\" && jtree tmp.json"
