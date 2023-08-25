@@ -59,7 +59,7 @@ class JSONTreeApp(App):
         json_data = json.loads(self.json_data)
         tree.add_node(root_name, json_node, json_data)
         json_doc = self.query_one(JSONDocument)
-        json_doc.load(self.json_data)
+        json_doc.load(json.dumps(json_data, indent=4))
 
     def action_screenshot(self):
         self.save_screenshot("./json-tree.svg")

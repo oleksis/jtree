@@ -13,10 +13,10 @@ highlighter = ReprHighlighter()
 
 
 class JSONDocument(Static):
-    def load(self, json_data) -> bool:
+    def load(self, json_data: str) -> bool:
         try:
             # TODO: Customize theme="github-dark"
-            json_doc = Syntax(json_data, line_numbers=True, lexer="json")
+            json_doc = Syntax(json_data, lexer="json", line_numbers=True)
         except Exception as e:
             return False
         self.update(json_doc)
