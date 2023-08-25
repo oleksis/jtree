@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from io import TextIOWrapper
 
 __prog_name__ = "jtree"
-__version__ = "0.2.5"
+__version__ = "0.2.6"
 
 
 class JSONTreeApp(App):

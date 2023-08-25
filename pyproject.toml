@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jtree"
-version = "0.2.5"
+version = "0.2.6"
 description = "jtree is a command line interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view"
 readme = "README.md"
 authors = [
@@ -43,7 +43,7 @@ include = ["jtree*"]
 exclude = ["jtree.tests*"]
 
 [tool.bumpver]
-current_version = "0.2.5"
+current_version = "0.2.6"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
