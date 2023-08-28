@@ -31,6 +31,7 @@ optional-dependencies.dev = [
     "check-manifest",
     "check-wheel-contents",
     'tomli >= 1.1.0 ; python_version < "3.11"',
+    "tox",
 ]
 optional-dependencies.format = ["black", "isort"]
 optional-dependencies.test = ["pytest"]
