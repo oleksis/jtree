@@ -9,6 +9,7 @@ from textual.binding import Binding
 from textual.containers import Container
 from textual.widgets import Footer, Header
 
+from jtree.utils import clean_string_values
 from jtree.widgets import JSONDocument, JSONDocumentView, JSONTree, TreeView
 
 if TYPE_CHECKING:
@@ -56,7 +57,7 @@ class JSONTreeApp(App):
         tree = self.query_one(JSONTree)
         root_name = "JSON"
         json_node = tree.root.add(root_name)
-        json_data = json.loads(self.json_data)
+        json_data = clean_string_values(json.loads(self.json_data))
         tree.add_node(root_name, json_node, json_data)
         json_doc = self.query_one(JSONDocument)
         json_doc.load(json.dumps(json_data, indent=4))
