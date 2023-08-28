@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "tamasfe.even-better-toml",
+        "redhat.vscode-yaml",
+        "github.vscode-github-actions",
+        "Textualize.textual-syntax-highlighter"
+    ]
+}
